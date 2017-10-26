@@ -20,10 +20,11 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  schema_search_path: "public,shared_extensions"
 
 development:
   <<: *default
-  database: dk_app_template_development
+  database: dk_app_client_development
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
@@ -57,7 +58,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: dk_app_template_test
+  database: dk_app_client_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -80,6 +81,6 @@ test:
 #
 production:
   <<: *default
-  database: dk_app_template_production
-  username: dk_app_template
+  database: dk_app_client_production
+  username: dk_app_client
   password: <%= ENV['DK_TEMPL_DATABASE_PASSWORD'] %>

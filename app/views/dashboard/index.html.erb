@@ -1,1 +1,10 @@
+<% if user_signed_in? %>
+	Logged in: <%= current_user.email %>
+<ul>
+	<li>
+		<%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
+	</li>
+</ul>
+<% end %>
+
 <h3>Dashboard</h3>
